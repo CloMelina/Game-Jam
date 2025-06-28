@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcpkncscdhpy2"]
+
+[ext_resource type="Script" uid="uid://lhh4h8fefcd7" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://fihnr8bb0h7s" path="res://scripts/interactHost.gd" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i3pqv"]
+size = Vector3(10, 10, 1)
+
+[sub_resource type="Curve" id="Curve_onrkg"]
+_data = [Vector2(0.514468, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_i3pqv"]
+curve = SubResource("Curve_onrkg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_onrkg"]
+size = Vector3(4, 4, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="InteractHost" type="Node2D" parent="."]
+script = ExtResource("2_onrkg")
+metadata/_custom_type_script = "uid://fihnr8bb0h7s"
+
+[node name="Label" type="Label" parent="InteractHost"]
+offset_left = -200.0
+offset_top = -215.0
+offset_right = 200.0
+offset_bottom = -15.0
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="InteractHost"]
+mesh = SubResource("BoxMesh_i3pqv")
+texture = SubResource("CurveTexture_i3pqv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="InteractHost"]
+mesh = SubResource("BoxMesh_onrkg")

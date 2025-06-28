@@ -1,0 +1,9 @@
+# Ignore Blender autosave and backup files
+*.blend1
+*.blend2
+*.blend@
+*.blend~
+
+# Ignore render cache or temp files
+__pycache__/
+*.pyc
