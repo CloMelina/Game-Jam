@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5gvp2ncuafgl"
+path="res://.godot/imported/smooch_1.mp3-be18ba6c6322786c25caeab47d9c5cdd.mp3str"
+
+[deps]
+
+source_file="res://SFX/smooch sfx/smooch_1.mp3"
+dest_files=["res://.godot/imported/smooch_1.mp3-be18ba6c6322786c25caeab47d9c5cdd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

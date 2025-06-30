@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://su0k3cjxoc5y"
+path="res://.godot/imported/gex.mp3-600c2bbbe6684292d4a23bbda4f6ae74.mp3str"
+
+[deps]
+
+source_file="res://SFX/smooch sfx/gex.mp3"
+dest_files=["res://.godot/imported/gex.mp3-600c2bbbe6684292d4a23bbda4f6ae74.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

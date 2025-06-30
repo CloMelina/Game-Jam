@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlxwh86hau6c0"]
+
+[ext_resource type="Texture2D" uid="uid://bwu1f0e6xh0hy" path="res://textures/smooch.png" id="1_aesaj"]
+[ext_resource type="Shader" uid="uid://dbmj8yq8d3tbj" path="res://smooch_screen.gdshader" id="1_hlamq"]
+[ext_resource type="Script" uid="uid://bshpp5nteckwv" path="res://smooch_screen.gd" id="2_juy78"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kve2u"]
+shader = ExtResource("1_hlamq")
+shader_parameter/hue_shift = 0.0
+shader_parameter/fade = 1.0
+
+[node name="smooch_screen" type="Node2D"]
+
+[node name="Smooch" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 1
+material = SubResource("ShaderMaterial_kve2u")
+position = Vector2(571, 338)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_aesaj")
+script = ExtResource("2_juy78")
