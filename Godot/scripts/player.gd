@@ -9,7 +9,7 @@ extends CharacterBody3D
 
 @export var movement_speed := 5.0
 @export var sprint_speed := 10.0
-@export var crouch_speed := 3.0
+@export var crouch_speed := 2.0
 
 ## How fast the player crouches/stands. Too fast may launch the player when standing.
 @export var crouch_smooth_speed := 10.0
@@ -64,21 +64,20 @@ func _physics_process(delta: float) -> void:
 	crouch_update(delta)
 	
 	# get current movement speed
-	curr_move_speed = sprint_speed if Input.is_action_pressed("mv_sprint") else movement_speed
 	# don't apply crouch speed if player is in the air, this way crouch jumping is a thing
-	curr_move_speed = crouch_speed if Input.is_action_pressed("mv_crouch") and is_on_floor() else curr_move_speed
+	if Input.is_action_pressed("mv_crouch") and is_on_floor():
+		curr_move_speed = crouch_speed
+	elif Input.is_action_pressed("mv_sprint"):
+		curr_move_speed = sprint_speed
+	else:
+		curr_move_speed = movement_speed
+	print(curr_move_speed)
 	
 	# get movement inputs
 	var move_dir = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward")
 	
-	# rotate movement vector to match player orientation
-	move_dir = move_dir.rotated(-rotation.y)
-	
-	# apply movement speed
-	if Input.is_action_pressed("mv_sprint"):
-		move_dir *= sprint_speed
-	else:
-		move_dir *= movement_speed
+	# rotate movement vector to match player orientation and apply movement speed
+	move_dir = move_dir.rotated(-rotation.y) * curr_move_speed
 	
 	# apply movement input if player has movement control
 	if has_move_control:
@@ -203,7 +202,6 @@ func crouch_update(delta: float) -> void:
 	# apply height to the collider
 	collision.shape.height = height
 	collision.position.y = stand_height - (height / 2)
-	print(collision.position.y)
 
 ## Returns player look vector
 func get_look() -> Vector3:

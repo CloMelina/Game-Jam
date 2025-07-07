@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 InteractRegistry="*res://scripts/interactRegistry.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerGlobals="*res://scripts/playerGlobals.gd"
+SaveLoad="*res://scripts/SaveLoad.gd"
 
 [dialogic]
 
@@ -164,6 +165,7 @@ mv_ragdoll={
 
 [physics]
 
+3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
 
 [rendering]
@@ -171,3 +173,4 @@ common/physics_interpolation=true
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/screen_space_aa=1
