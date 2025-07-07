@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://fihnr8bb0h7s" path="res://scripts/interactHost.gd" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.4
 
 [sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
 font_size = 20
@@ -24,6 +25,8 @@ curve = SubResource("Curve_onrkg")
 size = Vector3(4, 4, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

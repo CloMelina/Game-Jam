@@ -1,3 +1,4 @@
+# made by nick, stupid gay easteregg
 extends Sprite3D
 
 @onready var smooch_sound = $smoocher

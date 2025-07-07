@@ -1,3 +1,4 @@
+# stupid fucking smooch effect, made by nick
 extends Sprite2D
 
 @onready var mat := material as ShaderMaterial

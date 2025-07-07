@@ -27,6 +27,17 @@ func get_player_rot() -> Vector3:
 func set_player_rot(rot: Vector3):
 	player.global_rotation = rot
 
+## Returns the player's look vector
+func get_look() -> Vector3:
+	return player.get_look()
+
+## Sets the player's look vector
+func set_look(dir : Vector3) -> void:
+	player.set_look(dir)
+
+## Makes the player look at the specified global coordinates
+func cam_look_at(dir: Vector3):
+	player.cam_look_at(dir)
 # Anything more advanced should just inteface with the player root node directly
 ## Returns the player root node.
 func get_player() -> CharacterBody3D:

@@ -73,8 +73,8 @@ func update_current_prompt() -> void:
 		var to_prompt = prompt.global_position - cam_pos
 		var prompt_dist = to_prompt.length()
 		
-		# Skip prompts that don't pass the distance check
-		if prompt_dist > prompt.distance:
+		# Skip prompts that don't pass the distance check or are otherwise disabled
+		if prompt_dist > prompt.distance or prompt.is_visible_in_tree() == false or prompt.enabled == false:
 			continue
 		
 		# Skip prompts that don't pass angle checks
@@ -99,7 +99,7 @@ func update_prompt_text() -> void:
 		# get all interact options and format them for display
 		for i in current_prompt.options.size():
 			var option = current_prompt.options[i]
-			if option.hidden:
+			if option.hidden or not option.enabled:
 				continue
 			label.text += ("\n" + get_key_for_action(interact_keybinds[i]) + " - " + option.label)
 

@@ -16,8 +16,13 @@ class_name InteractPrompt
 ## Maximum distance the player can trigger the prompt from
 @export var distance := 2.0
 
+# TODO Implement this
 ## Limits the angle that the prompt can be accessed from. -1 is 360°, 0 is 180°, goes up to 1.
-@export var max_angle := -1.0
+## Useful for things like buttons mounted on surfaces where unlimited angle would allow interaction from behind the button.
+#@export var max_angle := -1.0
+
+## Disables the prompt completely.
+@export var enabled := true
 
 # signals that you can use to actually do things
 # this feels wrong but the better methods are just a little bit really fucking complicated
