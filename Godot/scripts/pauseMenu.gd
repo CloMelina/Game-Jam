@@ -127,3 +127,13 @@ func _on_vsync_option_item_selected(index: int) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+		
+		
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_light_quality_slider_2_value_changed(value: float) -> void:
+	pass # Replace with function body.

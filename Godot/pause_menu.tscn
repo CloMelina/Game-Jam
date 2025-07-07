@@ -90,14 +90,14 @@ alignment = 0
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 2
-anchor_left = 0.664
-anchor_top = 0.5
-anchor_right = 0.664
-anchor_bottom = 0.5
-offset_left = -396.928
-offset_top = -294.0
-offset_right = 356.072
-offset_bottom = 271.0
+anchor_left = 0.319
+anchor_top = 0.046
+anchor_right = 0.973
+anchor_bottom = 0.918
+offset_left = 0.511993
+offset_top = 0.191998
+offset_right = 0.104004
+offset_bottom = 0.135986
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdmo1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2"]
@@ -174,6 +174,28 @@ popup/item_2/id = 2
 popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 
+[node name="Master Volume" type="Label" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Master Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="LightQualitySlider" type="Label" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Light Quality Slider"
+
+[node name="LightQualitySlider2" type="HSlider" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+min_value = 0.25
+max_value = 1.0
+step = 0.05
+value = 0.25
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
@@ -184,3 +206,5 @@ popup/item_3/id = 3
 [connection signal="item_selected" from="PanelContainer2/VBoxContainer/AntiOption" to="." method="_on_anti_option_item_selected"]
 [connection signal="value_changed" from="PanelContainer2/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="item_selected" from="PanelContainer2/VBoxContainer/VsyncOption" to="." method="_on_vsync_option_item_selected"]
+[connection signal="value_changed" from="PanelContainer2/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer2/VBoxContainer/LightQualitySlider2" to="." method="_on_light_quality_slider_2_value_changed"]
