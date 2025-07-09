@@ -38,6 +38,7 @@ func set_look(dir : Vector3) -> void:
 ## Makes the player look at the specified global coordinates
 func cam_look_at(dir: Vector3):
 	player.cam_look_at(dir)
+
 # Anything more advanced should just inteface with the player root node directly
 ## Returns the player root node.
 func get_player() -> CharacterBody3D:

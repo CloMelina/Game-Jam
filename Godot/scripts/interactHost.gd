@@ -89,7 +89,7 @@ func update_current_prompt() -> void:
 			var to_other = current_prompt.global_position - cam_pos
 			var other_dot = cam_dir.dot(to_other.normalized())
 			
-			if other_dot > prompt_dot:
+			if other_dot < prompt_dot:
 				continue
 		current_prompt = prompt
 

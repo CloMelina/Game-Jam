@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcpkncscdhpy2"]
+[gd_scene load_steps=11 format=3 uid="uid://bcpkncscdhpy2"]
 
 [ext_resource type="Script" uid="uid://lhh4h8fefcd7" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://fihnr8bb0h7s" path="res://scripts/interactHost.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://dnx4dm2cnxymk" path="res://scripts/invHost.gd" id="3_hqtel"]
+[ext_resource type="PackedScene" uid="uid://bewt81mkhh7yx" path="res://inv_slot.tscn" id="3_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.4
@@ -55,3 +57,53 @@ texture = SubResource("CurveTexture_i3pqv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="InteractHost"]
 mesh = SubResource("BoxMesh_onrkg")
+
+[node name="InvBG" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.91
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.0980392)
+script = ExtResource("3_hqtel")
+
+[node name="InvSlots" type="HBoxContainer" parent="InvBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SlotBG1" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG2" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG3" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG4" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG5" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG6" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG7" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG8" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG9" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
+[node name="SlotBG10" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2

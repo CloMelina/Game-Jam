@@ -118,3 +118,6 @@ func _on_volume_slider_value_changed(value: float) -> void:
 
 func _on_light_quality_slider_2_value_changed(value: float) -> void:
 	pass # Replace with function body.
+
+func _on_mouse_sens_slider_value_changed(value: float) -> void:
+	PlayerGlobals.player.look_scale_mouse = value

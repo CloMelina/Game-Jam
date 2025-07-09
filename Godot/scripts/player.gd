@@ -31,20 +31,26 @@ extends CharacterBody3D
 @onready var collision = $CollisionShape3D
 
 var cam_target : Vector3
-var is_talking = false
-var has_cam_control = true
-var has_move_control = true
-var target_velocity = Vector3.ZERO # change this to make the player move without messing up gravity
-var impulse = Vector3.ZERO # like target_velocity, but it gets reset to zero each physics tick.
+var is_talking := false
+var has_cam_control := true
+var has_move_control := true
+var target_velocity := Vector3.ZERO # change this to make the player move without messing up gravity
+var impulse := Vector3.ZERO # like target_velocity, but it gets reset to zero each physics tick.
 # use impulse for impacts or jumps
-var height = stand_height
-var curr_move_speed = movement_speed
+var height := stand_height
+var curr_move_speed := movement_speed
+var target_mouse_mode := Input.MOUSE_MODE_CAPTURED
 
 const PI_2 = PI/2
 
 # tell playerglobals that this node is the player root
 func _init() -> void:
 	PlayerGlobals.aquire_player(self)
+
+# connect dialogic signals
+func _ready() -> void:
+	Dialogic.Text.textbox_visibility_changed.connect(_dialogue_change)
+	Dialogic.Text.speaker_updated.connect(_character_change)
 
 func _process(delta: float) -> void:
 	# determine if player has cam and movement control
@@ -61,7 +67,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# update crouch
-	crouch_update(delta)
+	if has_move_control:
+		crouch_update(delta)
 	
 	# get current movement speed
 	# don't apply crouch speed if player is in the air, this way crouch jumping is a thing
@@ -71,7 +78,6 @@ func _physics_process(delta: float) -> void:
 		curr_move_speed = sprint_speed
 	else:
 		curr_move_speed = movement_speed
-	print(curr_move_speed)
 	
 	# get movement inputs
 	var move_dir = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward")
@@ -84,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		target_velocity = Vector3(move_dir.x, 0, move_dir.y)
 		
 	# handle jump input
-	if Input.is_action_just_pressed("mv_jump") and is_on_floor():
+	if Input.is_action_just_pressed("mv_jump") and is_on_floor() and has_move_control:
 		apply_impulse(Vector3.UP * jump_force)
 	
 	# apply target velocity, not on Y or gravity won't work
@@ -112,14 +118,12 @@ func apply_impulse(vec: Vector3) -> void:
 
 func _input(event: InputEvent) -> void:
 	# handle mouse camera input
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and has_cam_control:
 		mouse_cam_update(event)
 	
-	# handle mouse buttons
+	# check if mouse is in desired state, correct it if not
 	if event is InputEventMouseButton:
-		# check if mouse is in captured state, capture it if not
-		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_update_mouse_mode()
 
 ## Handle mouse camera input
 func mouse_cam_update(event: InputEvent) -> void:
@@ -142,7 +146,7 @@ func gpd_cam_update(delta: float) -> void:
 	var look_dir = Input.get_vector("cam_left", "cam_right", "cam_up", "cam_down")
 	
 	# apply gamepad look sensitivity constant
-	# TODO add acceleration curve; can't do precise movement with a linear setup
+	# TODO add acceleration curve; can't do both fast and precise movement with a linear setup
 	look_dir *= -look_scale_gpad
 	look_dir *= delta
 	
@@ -150,7 +154,7 @@ func gpd_cam_update(delta: float) -> void:
 	if look_invert_gpad:
 		look_dir *= -1
 	
-	# update cam target
+	# update cam target, which the smoothing function will point the camera at. 
 	cam_target.x += look_dir.x
 	cam_target.y += look_dir.y
 
@@ -226,3 +230,17 @@ func set_look(dir: Vector3) -> void:
 ## Makes player look at a global coordinate. 
 func cam_look_at(dir: Vector3) -> void:
 	set_look(dir - camera.global_position)
+
+func  _update_mouse_mode():
+	if Input.mouse_mode != target_mouse_mode:
+		Input.mouse_mode = target_mouse_mode
+
+# Keep track of if the player is talking
+func _dialogue_change(vis: bool):
+	is_talking = vis
+	target_mouse_mode = Input.MOUSE_MODE_VISIBLE if vis else Input.MOUSE_MODE_CAPTURED
+	_update_mouse_mode()
+
+func _character_change(character: DialogicCharacter):
+	#cam_look_at(character.)
+	pass

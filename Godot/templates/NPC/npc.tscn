@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dqcsj5xdvme5b"]
 
-[ext_resource type="Script" uid="uid://buyx22de6dhe8" path="res://templates/npc.gd" id="1_nubrq"]
+[ext_resource type="Script" uid="uid://buyx22de6dhe8" path="res://templates/NPC/npc.gd" id="1_nubrq"]
 [ext_resource type="Texture2D" uid="uid://dch2uxijg1pi5" path="res://textures/Characters/placeholder dudes/mr anim.png" id="1_witdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nubrq"]
