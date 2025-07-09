@@ -26,16 +26,20 @@ SaveLoad="*res://scripts/SaveLoad.gd"
 [dialogic]
 
 directories/dch_directory={
+"GuyTalk": "res://GuyTalk.dch",
 "character": "res://Tests/character.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"testdialogic": "res://testdialogic.dtl",
 "timeline": "res://Tests/timeline.dtl"
 }
-variables={}
+variables={
+"response": ""
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://teststyle1.tres"]
+layout/default_style="res://teststyle1.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

@@ -1,57 +1,43 @@
-[gd_scene load_steps=56 format=3 uid="uid://cagtyybd3qf0q"]
+[gd_scene load_steps=56 format=3 uid="uid://bwq7pfm01wg1"]
 
-[ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="1_u3cyc"]
-[ext_resource type="PackedScene" uid="uid://bcpkncscdhpy2" path="res://player.tscn" id="1_ulcgi"]
-[ext_resource type="Script" uid="uid://cmb12k7166tnp" path="res://test_scene.gd" id="1_xpof7"]
-[ext_resource type="Texture2D" uid="uid://dpb4kgdyrtab8" path="res://textures/crunchy/wood.png" id="2_o3hm7"]
-[ext_resource type="Texture2D" uid="uid://dmfobkcjrn6nw" path="res://textures/crunchy/concrete.png" id="2_xpof7"]
-[ext_resource type="PackedScene" uid="uid://psfesvfx73st" path="res://props/shit ass table.tscn" id="3_3253y"]
-[ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="4_m7jmp"]
-[ext_resource type="Texture2D" uid="uid://bgochrjnnafuh" path="res://textures/rainbow.png" id="4_y2354"]
-[ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="7_ni31j"]
-[ext_resource type="Script" uid="uid://djgf54mq8688q" path="res://thing.gd" id="7_xlvrw"]
-[ext_resource type="Script" uid="uid://cbafaoc34y6uq" path="res://gay.gd" id="8_5c1cw"]
-[ext_resource type="AudioStream" uid="uid://b5gvp2ncuafgl" path="res://SFX/smooch sfx/smooch_1.mp3" id="9_17rhs"]
-[ext_resource type="Texture2D" uid="uid://bvgx0k1uo2hgf" path="res://textures/boom.png" id="9_73fnb"]
-[ext_resource type="AudioStream" uid="uid://ytnkykdk5dui" path="res://SFX/Bad explosion - Deltarune sound effect-JGYI9nSONUo.mp3" id="10_5juve"]
-[ext_resource type="AudioStream" uid="uid://dvrqgfsjjsjch" path="res://SFX/smooch sfx/smooch_2.mp3" id="10_8j1ou"]
-[ext_resource type="AudioStream" uid="uid://2skm2iphtmet" path="res://SFX/smooch sfx/smooch_3.mp3" id="11_o3hm7"]
-[ext_resource type="AudioStream" uid="uid://cneku6npq3svp" path="res://SFX/smooch sfx/smooch_4.mp3" id="12_xpof7"]
-[ext_resource type="AudioStream" uid="uid://vgx15ogrgm5j" path="res://SFX/smooch sfx/smooch_5.mp3" id="13_302uq"]
-[ext_resource type="AudioStream" uid="uid://su0k3cjxoc5y" path="res://SFX/smooch sfx/gex.mp3" id="14_8j1ou"]
-[ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/NPC/npc.tscn" id="19_o3hm7"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_o3hm7"]
-vertices = PackedVector3Array(16, 0.5, 0.5, 16, 0.5, -0.25, 15, 0.5, -0.5, 15, 0.5, 0.75, -9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 15, 0.5, 9.5, 15, 0.5, -9.5, 17.25, 0.5, -9.5, 17.25, 0.5, -3.5, 19.25, 0.5, -3.5, 21, 0.5, -3.5, 21.25, 0.5, -1.75, 29.5, 0.5, -2, 29.5, 0.5, -9.5, 17.25, 0.5, 0.75, 17.25, 0.5, -0.75, 21.25, 0.5, 3.25, 20.75, 0.5, 3.75, 17.25, 0.5, 9.5, 29.5, 0.5, 9.5, 29.5, 0.5, 2, 19, 0.5, 3.5, 21.25, 0.5, 1.75)
-polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(3, 5, 2), PackedInt32Array(2, 5, 4), PackedInt32Array(3, 6, 5), PackedInt32Array(4, 7, 2), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 10, 8), PackedInt32Array(13, 12, 11), PackedInt32Array(13, 11, 14), PackedInt32Array(14, 11, 8), PackedInt32Array(0, 1, 15), PackedInt32Array(15, 1, 16), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 20), PackedInt32Array(20, 17, 21), PackedInt32Array(16, 9, 10), PackedInt32Array(15, 16, 22), PackedInt32Array(22, 16, 10), PackedInt32Array(17, 23, 21), PackedInt32Array(19, 15, 22), PackedInt32Array(19, 22, 18), PackedInt32Array(12, 13, 23), PackedInt32Array(23, 13, 21)]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpof7"]
-albedo_texture = ExtResource("2_o3hm7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_302uq"]
-albedo_texture = ExtResource("2_xpof7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q4c1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxogm"]
-albedo_color = Color(0.734721, 0.734721, 0.734721, 1)
+[ext_resource type="Script" uid="uid://cmb12k7166tnp" path="res://test_scene.gd" id="1_dg2wl"]
+[ext_resource type="PackedScene" uid="uid://psfesvfx73st" path="res://props/shit ass table.tscn" id="2_dd7ne"]
+[ext_resource type="Script" uid="uid://djgf54mq8688q" path="res://thing.gd" id="3_dkjpe"]
+[ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="4_e410g"]
+[ext_resource type="Texture2D" uid="uid://bvgx0k1uo2hgf" path="res://textures/boom.png" id="5_d6gte"]
+[ext_resource type="AudioStream" uid="uid://ytnkykdk5dui" path="res://SFX/Bad explosion - Deltarune sound effect-JGYI9nSONUo.mp3" id="6_ms6tf"]
+[ext_resource type="Texture2D" uid="uid://dpb4kgdyrtab8" path="res://textures/crunchy/wood.png" id="7_ei0f5"]
+[ext_resource type="Texture2D" uid="uid://dmfobkcjrn6nw" path="res://textures/crunchy/concrete.png" id="8_cf1ui"]
+[ext_resource type="PackedScene" uid="uid://bcpkncscdhpy2" path="res://player.tscn" id="9_y43ex"]
+[ext_resource type="Texture2D" uid="uid://bgochrjnnafuh" path="res://textures/rainbow.png" id="10_m7u5n"]
+[ext_resource type="Script" uid="uid://cbafaoc34y6uq" path="res://gay.gd" id="11_o3pja"]
+[ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="12_l6r8r"]
+[ext_resource type="AudioStream" uid="uid://b5gvp2ncuafgl" path="res://SFX/smooch sfx/smooch_1.mp3" id="13_jx2do"]
+[ext_resource type="AudioStream" uid="uid://dvrqgfsjjsjch" path="res://SFX/smooch sfx/smooch_2.mp3" id="14_yi38c"]
+[ext_resource type="AudioStream" uid="uid://2skm2iphtmet" path="res://SFX/smooch sfx/smooch_3.mp3" id="15_gk8bk"]
+[ext_resource type="AudioStream" uid="uid://cneku6npq3svp" path="res://SFX/smooch sfx/smooch_4.mp3" id="16_8pnf1"]
+[ext_resource type="AudioStream" uid="uid://vgx15ogrgm5j" path="res://SFX/smooch sfx/smooch_5.mp3" id="17_we5gr"]
+[ext_resource type="AudioStream" uid="uid://su0k3cjxoc5y" path="res://SFX/smooch sfx/gex.mp3" id="18_mfp6h"]
+[ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/npc.tscn" id="19_creyk"]
+[ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="20_86wu1"]
+[ext_resource type="Script" uid="uid://c3gw27732whg0" path="res://scripts/npcTest.gd" id="20_dd7ne"]
 
 [sub_resource type="Resource" id="Resource_73fnb"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "Rotate"
 enabled = true
 hidden = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_xlvrw"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "Fucking explode"
 enabled = true
 hidden = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_1q4c1"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "Look!"
 enabled = true
 hidden = false
@@ -66,63 +52,63 @@ text = "THING"
 font_size = 52
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5juve"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(0, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy5k1"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(755, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5c1cw"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(1510, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_akxrc"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(2265, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu47o"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(3020, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hm71"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(3775, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_223my"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(4530, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17rhs"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(5285, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8j1ou"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(6040, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3hm7"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(6795, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpof7"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(7550, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_302uq"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(8305, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1q4c1"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(9060, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aobyt"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(9815, 0, 755, 1065)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6j5g"]
-atlas = ExtResource("9_73fnb")
+atlas = ExtResource("5_d6gte")
 region = Rect2(10570, 0, 755, 1065)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x5hgh"]
@@ -184,17 +170,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpof7"]
+albedo_texture = ExtResource("7_ei0f5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_302uq"]
+albedo_texture = ExtResource("8_cf1ui")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q4c1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxogm"]
+albedo_color = Color(0.734721, 0.734721, 0.734721, 1)
+
 [sub_resource type="Environment" id="Environment_ulcgi"]
 
 [sub_resource type="Resource" id="Resource_5c1cw"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "Smooch"
 enabled = true
 hidden = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_akxrc"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "Say \"gex\""
 enabled = true
 hidden = false
@@ -203,11 +200,11 @@ metadata/_custom_type_script = "uid://cucgj36wwdes5"
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1q4c1"]
 playback_mode = 2
 streams_count = 5
-stream_0/stream = ExtResource("9_17rhs")
-stream_1/stream = ExtResource("10_8j1ou")
-stream_2/stream = ExtResource("11_o3hm7")
-stream_3/stream = ExtResource("12_xpof7")
-stream_4/stream = ExtResource("13_302uq")
+stream_0/stream = ExtResource("13_jx2do")
+stream_1/stream = ExtResource("14_yi38c")
+stream_2/stream = ExtResource("15_gk8bk")
+stream_3/stream = ExtResource("16_8pnf1")
+stream_4/stream = ExtResource("17_we5gr")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8j1ou"]
 font_size = 80
@@ -231,24 +228,56 @@ text = "GAY
 font_size = 127
 
 [sub_resource type="Resource" id="Resource_xpof7"]
-script = ExtResource("7_ni31j")
+script = ExtResource("4_e410g")
 label = "jump"
 enabled = true
 hidden = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_302uq"]
-script = ExtResource("7_ni31j")
-label = "KILL"
+script = ExtResource("4_e410g")
+label = "Talk"
 enabled = true
 hidden = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_xpof7")
+script = ExtResource("1_dg2wl")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_o3hm7")
+
+[node name="shit ass table" parent="NavigationRegion3D" instance=ExtResource("2_dd7ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46236, 0, -2.34619)
+
+[node name="InteractPrompt" type="Node3D" parent="NavigationRegion3D/shit ass table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0501137, 1.21705, -0.0615025)
+script = ExtResource("3_dkjpe")
+options = Array[ExtResource("4_e410g")]([SubResource("Resource_73fnb"), SubResource("Resource_xlvrw"), SubResource("Resource_1q4c1")])
+radius = 0.95
+distance = 3.0
+metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/shit ass table/InteractPrompt"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0102556, 0)
+mesh = SubResource("TextMesh_y2354")
+skeleton = NodePath("../../../..")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="NavigationRegion3D/shit ass table/InteractPrompt"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.131578, 0)
+pixel_size = 0.002
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_x5hgh")
+animation = &"fucking_explode"
+speed_scale = 2.605
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="NavigationRegion3D/shit ass table/InteractPrompt"]
+stream = ExtResource("6_ms6tf")
+max_polyphony = 2
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D/shit ass table"]
+vertices = PackedVector3Array(-1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.75, 0)
@@ -282,40 +311,10 @@ use_collision = true
 size = Vector3(20, 0.5, 20)
 material = SubResource("StandardMaterial3D_nxogm")
 
-[node name="shit ass table" parent="." instance=ExtResource("3_3253y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16559, 9.53674e-07, 1.32407)
-
-[node name="InteractPrompt" type="Node3D" parent="shit ass table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0501137, 1.21705, -0.0615025)
-script = ExtResource("7_xlvrw")
-options = Array[ExtResource("7_ni31j")]([SubResource("Resource_73fnb"), SubResource("Resource_xlvrw"), SubResource("Resource_1q4c1")])
-radius = 0.95
-distance = 3.0
-metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="shit ass table/InteractPrompt"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0102556, 0)
-mesh = SubResource("TextMesh_y2354")
-skeleton = NodePath("../../..")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="shit ass table/InteractPrompt"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.131578, 0)
-pixel_size = 0.002
-billboard = 1
-no_depth_test = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_x5hgh")
-animation = &"fucking_explode"
-speed_scale = 2.605
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="shit ass table/InteractPrompt"]
-stream = ExtResource("10_5juve")
-max_polyphony = 2
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ulcgi")
 
-[node name="Player" parent="." instance=ExtResource("1_ulcgi")]
+[node name="Player" parent="." instance=ExtResource("9_y43ex")]
 look_scale_mouse = 0.002
 dialoge_cam_speed = 5
 
@@ -325,13 +324,13 @@ transform = Transform3D(0.707107, -0.612372, 0.353553, 0, 0.5, 0.866025, -0.7071
 [node name="GAY" type="Sprite3D" parent="."]
 transform = Transform3D(8.05173, 0, 0, 0, 7.90853, 0, 0, 0, 1, 1.25706, 5.69984, -11.0625)
 pixel_size = 0.0093
-texture = ExtResource("4_y2354")
-script = ExtResource("8_5c1cw")
+texture = ExtResource("10_m7u5n")
+script = ExtResource("11_o3pja")
 
 [node name="InteractPrompt" type="Node3D" parent="GAY"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07171, -0.669657, 0)
-script = ExtResource("4_m7jmp")
-options = Array[ExtResource("7_ni31j")]([SubResource("Resource_5c1cw"), SubResource("Resource_akxrc")])
+script = ExtResource("12_l6r8r")
+options = Array[ExtResource("4_e410g")]([SubResource("Resource_5c1cw"), SubResource("Resource_akxrc")])
 distance = 3.0
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
@@ -341,7 +340,7 @@ stream = SubResource("AudioStreamRandomizer_1q4c1")
 max_polyphony = 10
 
 [node name="gex" type="AudioStreamPlayer" parent="GAY"]
-stream = ExtResource("14_8j1ou")
+stream = ExtResource("18_mfp6h")
 
 [node name="laugh_please" type="Label" parent="GAY"]
 visible = false
@@ -359,22 +358,22 @@ vertical_alignment = 1
 transform = Transform3D(3.52542, 0, 0, 0, 3.33816, 0, 0, 0, 1, 0, 6, -11)
 mesh = SubResource("TextMesh_xlvrw")
 
-[node name="NPCMan" parent="." instance=ExtResource("19_o3hm7")]
+[node name="NPCMan" parent="." instance=ExtResource("19_creyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73432, -2.38419e-07, -3.25816)
+script = ExtResource("20_dd7ne")
 
 [node name="InteractPrompt" type="Node3D" parent="NPCMan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("4_m7jmp")
-options = Array[ExtResource("7_ni31j")]([SubResource("Resource_xpof7"), SubResource("Resource_302uq")])
-distance = 2.5
+script = ExtResource("12_l6r8r")
+options = Array[ExtResource("4_e410g")]([SubResource("Resource_xpof7"), SubResource("Resource_302uq")])
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_u3cyc")]
+[node name="PauseMenu" parent="." instance=ExtResource("20_86wu1")]
 
-[connection signal="option_0" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_0"]
-[connection signal="option_1" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_1"]
-[connection signal="option_2" from="shit ass table/InteractPrompt" to="." method="_on_interact_prompt_option_2"]
+[connection signal="option_0" from="NavigationRegion3D/shit ass table/InteractPrompt" to="NavigationRegion3D/shit ass table/InteractPrompt" method="_on_option_0"]
+[connection signal="option_1" from="NavigationRegion3D/shit ass table/InteractPrompt" to="NavigationRegion3D/shit ass table/InteractPrompt" method="_on_option_1"]
+[connection signal="option_2" from="NavigationRegion3D/shit ass table/InteractPrompt" to="." method="_on_interact_prompt_option_2"]
 [connection signal="option_0" from="GAY/InteractPrompt" to="GAY" method="_on_interact_prompt_option_0"]
 [connection signal="option_1" from="GAY/InteractPrompt" to="GAY" method="_on_interact_prompt_option_1"]
 [connection signal="option_0" from="NPCMan/InteractPrompt" to="." method="_on_interact_prompt_option_0"]
-[connection signal="option_1" from="NPCMan/InteractPrompt" to="." method="_on_interact_prompt_option_1"]
+[connection signal="option_1" from="NPCMan/InteractPrompt" to="NPCMan" method="_on_interact_prompt_option_1"]
