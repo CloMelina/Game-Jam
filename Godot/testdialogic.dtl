@@ -1,0 +1,8 @@
+[style name="teststyle"]
+GuyTalk: Hello my name is Jeff
+GuyTalk: DO IT FART?????
+- custom styles
+	GuyTalk: Lets get CRAZZYYYY
+- Do it far
+	[sound path="res://SFX/fart.mp3" volume="0.0"]
+	GuyTalk: Uh oh

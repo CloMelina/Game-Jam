@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg0klu7uttsaf"]
+
+[ext_resource type="Script" uid="uid://dd7fn337hcemx" path="res://dialogictest.gd" id="1_op1tl"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_op1tl")
