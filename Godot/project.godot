@@ -227,6 +227,11 @@ inv_9={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Navigation"
+3d_physics/layer_2="Items"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

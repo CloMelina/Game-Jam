@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("2_onrkg")
 metadata/_custom_type_script = "uid://fihnr8bb0h7s"
 
-[node name="Label" type="Label" parent="InteractHost"]
+[node name="OptionText" type="Label" parent="InteractHost"]
 offset_left = -200.0
 offset_top = -215.0
 offset_right = 200.0
@@ -57,6 +57,14 @@ texture = SubResource("CurveTexture_i3pqv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="InteractHost"]
 mesh = SubResource("BoxMesh_onrkg")
+
+[node name="DescriptionText" type="Label" parent="InteractHost"]
+offset_left = -200.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 215.0
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
 
 [node name="InvBG" type="ColorRect" parent="."]
 anchors_preset = -1

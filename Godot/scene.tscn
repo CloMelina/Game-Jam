@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cagtyybd3qf0q"]
+[gd_scene load_steps=57 format=3 uid="uid://cagtyybd3qf0q"]
 
 [ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="1_u3cyc"]
 [ext_resource type="PackedScene" uid="uid://bcpkncscdhpy2" path="res://player.tscn" id="1_ulcgi"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://vgx15ogrgm5j" path="res://SFX/smooch sfx/smooch_5.mp3" id="13_302uq"]
 [ext_resource type="AudioStream" uid="uid://su0k3cjxoc5y" path="res://SFX/smooch sfx/gex.mp3" id="14_8j1ou"]
 [ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/NPC/npc.tscn" id="19_o3hm7"]
+[ext_resource type="PackedScene" uid="uid://dqs8y0gwchp5c" path="res://items/ductTape/DuctTape.tscn" id="21_302uq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o3hm7"]
 vertices = PackedVector3Array(16, 0.5, 0.5, 16, 0.5, -0.25, 15, 0.5, -0.5, 15, 0.5, 0.75, -9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 15, 0.5, 9.5, 15, 0.5, -9.5, 17.25, 0.5, -9.5, 17.25, 0.5, -3.5, 19.25, 0.5, -3.5, 21, 0.5, -3.5, 21.25, 0.5, -1.75, 29.5, 0.5, -2, 29.5, 0.5, -9.5, 17.25, 0.5, 0.75, 17.25, 0.5, -0.75, 21.25, 0.5, 3.25, 20.75, 0.5, 3.75, 17.25, 0.5, 9.5, 29.5, 0.5, 9.5, 29.5, 0.5, 2, 19, 0.5, 3.5, 21.25, 0.5, 1.75)
@@ -288,6 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16559, 9.53674e-07, 1.3240
 [node name="InteractPrompt" type="Node3D" parent="shit ass table"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0501137, 1.21705, -0.0615025)
 script = ExtResource("7_xlvrw")
+description = "THING"
 options = Array[ExtResource("7_ni31j")]([SubResource("Resource_73fnb"), SubResource("Resource_xlvrw"), SubResource("Resource_1q4c1")])
 radius = 0.95
 distance = 3.0
@@ -331,6 +333,7 @@ script = ExtResource("8_5c1cw")
 [node name="InteractPrompt" type="Node3D" parent="GAY"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07171, -0.669657, 0)
 script = ExtResource("4_m7jmp")
+description = "GAY. GAY. GA"
 options = Array[ExtResource("7_ni31j")]([SubResource("Resource_5c1cw"), SubResource("Resource_akxrc")])
 distance = 3.0
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
@@ -365,11 +368,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73432, -2.38419e-07, -3.25
 [node name="InteractPrompt" type="Node3D" parent="NPCMan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("4_m7jmp")
+description = "NPC Dude Man"
 options = Array[ExtResource("7_ni31j")]([SubResource("Resource_xpof7"), SubResource("Resource_302uq")])
 distance = 2.5
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_u3cyc")]
+
+[node name="DuctTape" parent="." instance=ExtResource("21_302uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6746, 1.05, 1.49867)
 
 [connection signal="option_0" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_0"]
 [connection signal="option_1" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_1"]

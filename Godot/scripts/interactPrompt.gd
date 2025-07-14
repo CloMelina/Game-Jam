@@ -7,6 +7,9 @@ class_name InteractPrompt
 #TODO add icon
 #TODO figure something out to show keyboard or controler prompts, either automatic or a setting
 
+## Text that will be displayed to the player when they hover over the prompt.
+@export var description: String
+
 ## List of interaction options made available to the player
 @export var options: Array[InteractOption]
 

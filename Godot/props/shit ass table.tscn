@@ -47,6 +47,8 @@ shadow_mesh = SubResource("ArrayMesh_6o0l4")
 points = PackedVector3Array(-1, 0.799922, -1, -0.900157, 0, -0.900157, -1, 0.799922, 1, -1, 1, -1, 1, 0.799922, -1, -0.900157, 0, 0.899961, 0.899961, 0, -0.900157, -1, 1, 1, 1, 0.799922, 1, 1, 1, -1, 0.899961, 0, 0.899961, 1, 1, 1)
 
 [node name="shit ass table" type="RigidBody3D"]
+collision_layer = 3
+mass = 15.0
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ci7b5")

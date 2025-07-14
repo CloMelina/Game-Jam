@@ -2,6 +2,7 @@ extends ColorRect
 
 @onready var tex_rect = $TextureRect
 
+@export var inv_item : InvItem
 @export var selected := false
 
 const glide_speed := 10.0
@@ -19,3 +20,11 @@ func _process(delta: float) -> void:
 	var current_px = tex_rect.position.y * -1
 	current_px = lerp(current_px, target_px, glide_speed * delta)
 	tex_rect.position.y = current_px * -1
+
+## Returns true if the slot is empty.
+func is_empty() -> bool:
+	return inv_item == null
+
+func set_item(item: InvItem):
+	inv_item = item
+	tex_rect.image = item.item_icon
