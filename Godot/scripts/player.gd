@@ -252,6 +252,8 @@ func  _update_mouse_mode():
 	#_update_mouse_mode()
 	#print(vis)
 
+## Call this each time the currently speaking character changes so the camera points at them
 func _character_change(character: DialogicCharacter):
+	#TODO get the current character's position and point the camera at it
 	#cam_look_at(character.)
 	pass

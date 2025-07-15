@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cagtyybd3qf0q"]
+[gd_scene load_steps=58 format=3 uid="uid://cagtyybd3qf0q"]
 
 [ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="1_u3cyc"]
 [ext_resource type="PackedScene" uid="uid://bcpkncscdhpy2" path="res://player.tscn" id="1_ulcgi"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://su0k3cjxoc5y" path="res://SFX/smooch sfx/gex.mp3" id="14_8j1ou"]
 [ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/NPC/npc.tscn" id="19_o3hm7"]
 [ext_resource type="PackedScene" uid="uid://dqs8y0gwchp5c" path="res://items/ductTape/DuctTape.tscn" id="21_302uq"]
+[ext_resource type="PackedScene" uid="uid://cd6t1k72rf8fi" path="res://items/hammer/Hammer.tscn" id="22_1q4c1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o3hm7"]
 vertices = PackedVector3Array(16, 0.5, 0.5, 16, 0.5, -0.25, 15, 0.5, -0.5, 15, 0.5, 0.75, -9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 15, 0.5, 9.5, 15, 0.5, -9.5, 17.25, 0.5, -9.5, 17.25, 0.5, -3.5, 19.25, 0.5, -3.5, 21, 0.5, -3.5, 21.25, 0.5, -1.75, 29.5, 0.5, -2, 29.5, 0.5, -9.5, 17.25, 0.5, 0.75, 17.25, 0.5, -0.75, 21.25, 0.5, 3.25, 20.75, 0.5, 3.75, 17.25, 0.5, 9.5, 29.5, 0.5, 9.5, 29.5, 0.5, 2, 19, 0.5, 3.5, 21.25, 0.5, 1.75)
@@ -377,6 +378,9 @@ metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
 [node name="DuctTape" parent="." instance=ExtResource("21_302uq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6746, 1.05, 1.49867)
+
+[node name="Hammer" parent="." instance=ExtResource("22_1q4c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.71663, 1.02444, 0.924286)
 
 [connection signal="option_0" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_0"]
 [connection signal="option_1" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_1"]

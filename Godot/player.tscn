@@ -38,6 +38,12 @@ shape = SubResource("CapsuleShape3D_sh265")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
+[node name="RightHand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(9.55343e-16, -0.5, 4.37114e-08, -0.5, 9.55343e-16, 2.18557e-08, -2.18557e-08, -4.37114e-08, -0.5, 0.2, -0.1, -0.2)
+
+[node name="LeftHand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.204204, -1.39027)
+
 [node name="InteractHost" type="Node2D" parent="."]
 script = ExtResource("2_onrkg")
 metadata/_custom_type_script = "uid://fihnr8bb0h7s"
@@ -86,6 +92,9 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="SlotBG0" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
+
 [node name="SlotBG1" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
 layout_mode = 2
 
@@ -111,7 +120,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="SlotBG9" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
-layout_mode = 2
-
-[node name="SlotBG10" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
 layout_mode = 2

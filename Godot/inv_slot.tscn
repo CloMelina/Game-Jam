@@ -9,7 +9,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-color = Color(0, 0, 0, 0.0980392)
+color = Color(0, 0, 0, 0.12549)
 script = ExtResource("1_gw5dw")
 
 [node name="TextureRect" type="TextureRect" parent="."]

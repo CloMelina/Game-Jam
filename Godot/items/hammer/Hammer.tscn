@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd6t1k72rf8fi"]
+
+[ext_resource type="Script" uid="uid://cmed03kgi1shs" path="res://items/hammer/hammer.gd" id="1_a8f7x"]
+[ext_resource type="Texture2D" uid="uid://ddaygqki2eup1" path="res://items/hammer/icon.png" id="2_8xk7u"]
+[ext_resource type="PackedScene" uid="uid://bqdgry702yj13" path="res://items/hammer/hammer.glb" id="2_b1l3l"]
+[ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="3_8xk7u"]
+[ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="4_fklfa"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a8f7x"]
+height = 0.506958
+radius = 0.0200195
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xk7u"]
+size = Vector3(0.045, 0.067, 0.224)
+
+[sub_resource type="Resource" id="Resource_j2aqy"]
+script = ExtResource("4_fklfa")
+label = "Pick up"
+enabled = true
+hidden = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[node name="Hammer" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_a8f7x")
+item_name = "Hammer"
+item_icon = ExtResource("2_8xk7u")
+item_prompt = NodePath("InteractPrompt")
+metadata/_custom_type_script = "uid://cagqo841xwg71"
+
+[node name="hammer" parent="." instance=ExtResource("2_b1l3l")]
+transform = Transform3D(-1.31134e-09, -0.03, 0, 0.03, -1.31134e-09, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0206909, 9.04429e-10, 0)
+shape = SubResource("CylinderShape3D_a8f7x")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.214914, 2.23306e-09, -0.00601196)
+shape = SubResource("BoxShape3D_8xk7u")
+
+[node name="InteractPrompt" type="Node3D" parent="."]
+script = ExtResource("3_8xk7u")
+description = "Hammer"
+options = Array[ExtResource("4_fklfa")]([SubResource("Resource_j2aqy")])
+metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
+
+[connection signal="option_0" from="InteractPrompt" to="." method="_on_interact_prompt_option_0"]
