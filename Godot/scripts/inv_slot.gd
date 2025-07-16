@@ -6,7 +6,7 @@ extends ColorRect
 @export var selected := false
 
 const glide_speed := 10.0
-const select_offset := 0.3
+const select_offset := 0.1
 
 const color_base := Color("00000020")
 const color_selected := Color("00000040")

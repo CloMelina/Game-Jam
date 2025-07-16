@@ -63,12 +63,20 @@ func _input(event: InputEvent) -> void:
 func get_key_for_action(action_name: String) -> String:
 	if not InputMap.has_action(action_name):
 		return "?"
-
 	var events = InputMap.action_get_events(action_name)
 	for event in events:
 		if event is InputEventKey:
-			# Prefer physical keycode (e.g. "Q" even if layout is AZERTY)
 			return OS.get_keycode_string(event.physical_keycode)
+		elif event is InputEventMouseButton:
+			match event.button_index:
+				MOUSE_BUTTON_LEFT: return "LMB"
+				MOUSE_BUTTON_RIGHT: return "RMB"
+				MOUSE_BUTTON_MIDDLE: return "MMB"
+				MOUSE_BUTTON_WHEEL_UP: return "Wheel Up"
+				MOUSE_BUTTON_WHEEL_DOWN: return "Wheel Down"
+				MOUSE_BUTTON_WHEEL_LEFT: return "Wheel Left"
+				MOUSE_BUTTON_WHEEL_RIGHT: return "Wheel Right"
+				_: return "Mouse " + str(event.button_index)
 	return "?"
 
 # Figures out which (if any) interaction prompt the player is looking at

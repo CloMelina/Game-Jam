@@ -83,6 +83,18 @@ grow_vertical = 0
 color = Color(0, 0, 0, 0.0980392)
 script = ExtResource("3_hqtel")
 
+[node name="EquipText" type="Label" parent="InvBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.0
+anchor_right = 1.0
+anchor_bottom = -0.05
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="InvSlots" type="HBoxContainer" parent="InvBG"]
 layout_mode = 1
 anchors_preset = -1
