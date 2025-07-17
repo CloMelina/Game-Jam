@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://8aikpvjn2rd2"]
+
+[ext_resource type="FontFile" uid="uid://duogww83um1fx" path="res://Fonts/GrobeDeutschmeister.ttf" id="1_83s16"]
+[ext_resource type="Script" uid="uid://n2dnutcyv35y" path="res://main_menu.gd" id="1_w7d22"]
+[ext_resource type="FontFile" uid="uid://c6rsqgbuy6s5l" path="res://Fonts/Cocomat Light-trial.ttf" id="3_w7d22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc2lj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83s16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wked4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7d22"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w7d22")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = 0.193
+anchor_right = 0.248
+anchor_bottom = 0.779
+offset_left = 0.215988
+offset_top = -0.064003
+offset_right = 0.303986
+offset_bottom = 0.207977
+
+[node name="GameTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_83s16")
+theme_override_font_sizes/font_size = 100
+text = "Airship!"
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w7d22")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wc2lj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_83s16")
+text = "Start"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w7d22")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wc2lj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_83s16")
+text = "Credits
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w7d22")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wked4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w7d22")
+text = "Exit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer"]
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

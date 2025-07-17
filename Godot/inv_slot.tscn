@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bewt81mkhh7yx"]
+
+[ext_resource type="Script" uid="uid://b6k16c2plnbsg" path="res://scripts/inv_slot.gd" id="1_gw5dw"]
+[ext_resource type="Texture2D" uid="uid://ba31pinawuian" path="res://textures/HUD/inventoryBoxes.png" id="2_gw5dw"]
+
+[node name="SlotBG" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.0980392)
+script = ExtResource("1_gw5dw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gw5dw")
