@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://cneku6npq3svp" path="res://SFX/smooch sfx/smooch_4.mp3" id="16_8pnf1"]
 [ext_resource type="AudioStream" uid="uid://vgx15ogrgm5j" path="res://SFX/smooch sfx/smooch_5.mp3" id="17_we5gr"]
 [ext_resource type="AudioStream" uid="uid://su0k3cjxoc5y" path="res://SFX/smooch sfx/gex.mp3" id="18_mfp6h"]
-[ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/npc.tscn" id="19_creyk"]
+[ext_resource type="PackedScene" uid="uid://dqcsj5xdvme5b" path="res://templates/NPC/npc.tscn" id="19_creyk"]
 [ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="20_86wu1"]
 [ext_resource type="Script" uid="uid://c3gw27732whg0" path="res://scripts/npcTest.gd" id="20_dd7ne"]
 
@@ -183,6 +183,18 @@ albedo_color = Color(0.734721, 0.734721, 0.734721, 1)
 
 [sub_resource type="Environment" id="Environment_ulcgi"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni31j"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_xlvrw"]
+material = SubResource("StandardMaterial3D_ni31j")
+text = "GAY
+
+                  GAY"
+font_size = 127
+
 [sub_resource type="Resource" id="Resource_5c1cw"]
 script = ExtResource("4_e410g")
 label = "Smooch"
@@ -214,18 +226,6 @@ outline_color = Color(0, 1, 0, 1)
 shadow_size = 30
 shadow_color = Color(0, 0, 1, 1)
 shadow_offset = Vector2(0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni31j"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-
-[sub_resource type="TextMesh" id="TextMesh_xlvrw"]
-material = SubResource("StandardMaterial3D_ni31j")
-text = "GAY
-
-                  GAY"
-font_size = 127
 
 [sub_resource type="Resource" id="Resource_xpof7"]
 script = ExtResource("4_e410g")
@@ -327,6 +327,11 @@ pixel_size = 0.0093
 texture = ExtResource("10_m7u5n")
 script = ExtResource("11_o3pja")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GAY"]
+transform = Transform3D(0.437846, 0, 0, 0, 0.422096, 0, 0, 0, 1, -0.156123, 0.037954, 0.0625)
+mesh = SubResource("TextMesh_xlvrw")
+skeleton = NodePath("../..")
+
 [node name="InteractPrompt" type="Node3D" parent="GAY"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07171, -0.669657, 0)
 script = ExtResource("12_l6r8r")
@@ -353,10 +358,6 @@ GAY SEX MENTIONED"
 label_settings = SubResource("LabelSettings_8j1ou")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.52542, 0, 0, 0, 3.33816, 0, 0, 0, 1, 0, 6, -11)
-mesh = SubResource("TextMesh_xlvrw")
 
 [node name="NPCMan" parent="." instance=ExtResource("19_creyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73432, -2.38419e-07, -3.25816)

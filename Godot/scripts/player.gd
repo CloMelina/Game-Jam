@@ -27,11 +27,12 @@ extends CharacterBody3D
 @export var cam_speed := 50
 @export var dialoge_cam_speed := 20
 
+@export var is_talking := false
+
 @onready var camera = $Camera3D
 @onready var collision = $CollisionShape3D
 
 var cam_target : Vector3
-var is_talking := false
 var has_cam_control := true
 var has_move_control := true
 var target_velocity := Vector3.ZERO # change this to make the player move without messing up gravity
@@ -49,10 +50,18 @@ func _init() -> void:
 
 # connect dialogic signals
 func _ready() -> void:
-	Dialogic.Text.textbox_visibility_changed.connect(_dialogue_change)
+	#TODO DIALOGIC'S VISIBILITY SIGNAL DOES NOT FUCKING WORK HALF THE TIME
+	#Dialogic.Text.textbox_visibility_changed.connect(_dialogue_change)
 	Dialogic.Text.speaker_updated.connect(_character_change)
 
 func _process(delta: float) -> void:
+	# update dialogue status
+	#TODO THIS IS SLOW AS SHIT FIND A BETTER WAY FIND A FASTER WAY
+	is_talking = Dialogic.Text.is_textbox_visible()
+	target_mouse_mode = Input.MOUSE_MODE_VISIBLE if is_talking else Input.MOUSE_MODE_CAPTURED
+	_update_mouse_mode()
+	#print(is_talking)
+	
 	# determine if player has cam and movement control
 	has_cam_control = not is_talking and look_at_speaker
 	has_move_control = not is_talking and not move_during_dialogue
@@ -236,11 +245,15 @@ func  _update_mouse_mode():
 		Input.mouse_mode = target_mouse_mode
 
 # Keep track of if the player is talking
-func _dialogue_change(vis: bool):
-	is_talking = vis
-	target_mouse_mode = Input.MOUSE_MODE_VISIBLE if vis else Input.MOUSE_MODE_CAPTURED
-	_update_mouse_mode()
+#TODO dialogic has a bug that breaks this and I am too lazy to report it
+#func _dialogue_change(vis: bool):
+	#is_talking = vis
+	#target_mouse_mode = Input.MOUSE_MODE_VISIBLE if vis else Input.MOUSE_MODE_CAPTURED
+	#_update_mouse_mode()
+	#print(vis)
 
+## Call this each time the currently speaking character changes so the camera points at them
 func _character_change(character: DialogicCharacter):
+	#TODO get the current character's position and point the camera at it
 	#cam_look_at(character.)
 	pass

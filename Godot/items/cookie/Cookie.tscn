@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://bfmiamwfsapyb"]
+
+[ext_resource type="Script" uid="uid://cp1ypkd6nefo" path="res://items/cookie/cookie.gd" id="1_prutg"]
+[ext_resource type="Texture2D" uid="uid://c8itvcwg4xo6i" path="res://items/cookie/icon.png" id="2_euldt"]
+[ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="2_h6omc"]
+[ext_resource type="PackedScene" uid="uid://bdykk1sf7hull" path="res://items/cookie/Cookie.glb" id="2_u74of"]
+[ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="3_euldt"]
+[ext_resource type="AudioStream" uid="uid://8jxdj8kev0bw" path="res://items/cookie/munch.mp3" id="6_euldt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_euldt"]
+rough = true
+absorbent = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6omc"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_euldt"]
+albedo_color = Color(0.921569, 0.580392, 0.321569, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ae7g5"]
+material = SubResource("StandardMaterial3D_euldt")
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae7g5"]
+albedo_color = Color(0.104511, 0.0578974, 0.0311686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3qocr"]
+material = SubResource("StandardMaterial3D_ae7g5")
+radius = 0.006
+height = 0.013
+radial_segments = 4
+rings = 2
+
+[sub_resource type="Resource" id="Resource_ae7g5"]
+script = ExtResource("3_euldt")
+label = "Pick up"
+identifier = &"pickup"
+enabled = false
+hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[sub_resource type="Resource" id="Resource_rh3by"]
+script = ExtResource("3_euldt")
+label = "Eat"
+identifier = &"eat"
+enabled = true
+hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_prutg"]
+height = 0.0653906
+radius = 0.115234
+
+[node name="Cookie" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
+collision_layer = 2
+collision_mask = 3
+mass = 0.3
+physics_material_override = SubResource("PhysicsMaterial_euldt")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.02, 0.01)
+script = ExtResource("1_prutg")
+item_name = "Cookie"
+item_icon = ExtResource("2_euldt")
+item_prompt = NodePath("InteractPrompt")
+use_primary_text = "Eat"
+hold_rotation = Vector3(-0.61, 0.66, 0)
+metadata/_custom_type_script = "uid://cagqo841xwg71"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00742187, 0)
+emitting = false
+amount = 16
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h6omc")
+draw_pass_1 = SubResource("BoxMesh_ae7g5")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00742187, 0)
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h6omc")
+draw_pass_1 = SubResource("SphereMesh_3qocr")
+
+[node name="InteractPrompt" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00255859, 0)
+script = ExtResource("2_h6omc")
+description = "Cookie"
+options = Array[ExtResource("3_euldt")]([SubResource("Resource_ae7g5"), SubResource("Resource_rh3by")])
+metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
+
+[node name="Cookie" parent="." instance=ExtResource("2_u74of")]
+transform = Transform3D(-5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, 0, 0, 0.12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00742187, 0)
+shape = SubResource("CylinderShape3D_prutg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_euldt")
+max_polyphony = 2
+
+[connection signal="used_1" from="." to="." method="_on_used_1"]
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

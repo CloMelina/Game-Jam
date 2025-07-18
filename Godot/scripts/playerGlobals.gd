@@ -3,13 +3,17 @@
 # location and other relevant info using this. 
 extends Node
 
-var player: CharacterBody3D
-var player_pos: Vector3
+@export var player: CharacterBody3D
+@export var player_pos: Vector3
+@export var inventory: Node
 
 # A few basic setters and getters for position and rotation
 ## Gets called by the player script when it enters the scene
 func aquire_player(node: CharacterBody3D):
 	player = node
+
+func aquire_inventory(node: Node) -> void:
+	inventory = node
 
 ## Returns the player's global position
 func get_player_pos() -> Vector3:
@@ -38,6 +42,22 @@ func set_look(dir : Vector3) -> void:
 ## Makes the player look at the specified global coordinates
 func cam_look_at(dir: Vector3):
 	player.cam_look_at(dir)
+
+## Returns true if the player is currently in dialogue
+func is_talking() -> bool:
+	return player.is_talking
+
+## Add an item to the player's inventory
+func pickup(item: InvItem) -> void:
+	inventory.pickup(item)
+
+## Clears the specified inventory slot, defaults to selected slot. Returns the invItem in the slot.
+func clear_slot(slot_num : int = inventory.selected_slot) -> InvItem:
+	return inventory.clear_slot(slot_num)
+
+## Returns index of player's currently selected slot
+func get_selected_slot() -> int:
+	return inventory.selected_slot
 
 # Anything more advanced should just inteface with the player root node directly
 ## Returns the player root node.

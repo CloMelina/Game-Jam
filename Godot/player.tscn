@@ -38,11 +38,20 @@ shape = SubResource("CapsuleShape3D_sh265")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
+[node name="RightHand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(9.55343e-16, -0.5, 4.37114e-08, -0.5, 9.55343e-16, 2.18557e-08, -2.18557e-08, -4.37114e-08, -0.5, 0.2, -0.1, -0.2)
+
+[node name="LeftHand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(4.37114e-08, -1, 1.50996e-07, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1.50996e-07, -1, -0.2, -0.1, -0.2)
+
+[node name="ThrowPoint" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
 [node name="InteractHost" type="Node2D" parent="."]
 script = ExtResource("2_onrkg")
 metadata/_custom_type_script = "uid://fihnr8bb0h7s"
 
-[node name="Label" type="Label" parent="InteractHost"]
+[node name="OptionText" type="Label" parent="InteractHost"]
 offset_left = -200.0
 offset_top = -215.0
 offset_right = 200.0
@@ -58,6 +67,14 @@ texture = SubResource("CurveTexture_i3pqv")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="InteractHost"]
 mesh = SubResource("BoxMesh_onrkg")
 
+[node name="DescriptionText" type="Label" parent="InteractHost"]
+offset_left = -200.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 215.0
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+
 [node name="InvBG" type="ColorRect" parent="."]
 anchors_preset = -1
 anchor_left = 0.1
@@ -69,6 +86,18 @@ grow_vertical = 0
 color = Color(0, 0, 0, 0.0980392)
 script = ExtResource("3_hqtel")
 
+[node name="EquipText" type="Label" parent="InvBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.0
+anchor_right = 1.0
+anchor_bottom = -0.05
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="InvSlots" type="HBoxContainer" parent="InvBG"]
 layout_mode = 1
 anchors_preset = -1
@@ -77,6 +106,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="SlotBG0" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
+layout_mode = 2
 
 [node name="SlotBG1" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
 layout_mode = 2
@@ -103,7 +135,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="SlotBG9" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
-layout_mode = 2
-
-[node name="SlotBG10" parent="InvBG/InvSlots" instance=ExtResource("3_i3pqv")]
 layout_mode = 2

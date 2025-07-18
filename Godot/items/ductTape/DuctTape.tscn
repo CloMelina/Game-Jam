@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqs8y0gwchp5c"]
+
+[ext_resource type="Script" uid="uid://bhh4ip0odf38d" path="res://items/ductTape/duct_tape.gd" id="1_uck0t"]
+[ext_resource type="Texture2D" uid="uid://5lf4pepcddqi" path="res://items/ductTape/icon.png" id="2_pvdri"]
+[ext_resource type="PackedScene" uid="uid://dawjaahqns1ke" path="res://items/ductTape/DTtape.glb" id="2_scl3j"]
+[ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="4_pvdri"]
+[ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="5_wsw1i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uck0t"]
+height = 0.1
+radius = 0.148
+
+[sub_resource type="Resource" id="Resource_161hk"]
+script = ExtResource("5_wsw1i")
+label = "Pick up"
+identifier = &"pickup"
+enabled = true
+hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[node name="DuctTape" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
+collision_layer = 2
+collision_mask = 3
+mass = 0.6
+script = ExtResource("1_uck0t")
+item_name = "Duct tape"
+item_icon = ExtResource("2_pvdri")
+item_prompt = NodePath("InteractPrompt")
+requisites = Array[StringName]([&"tape"])
+hold_rotation = Vector3(3.1, 1, 0)
+metadata/_custom_type_script = "uid://cagqo841xwg71"
+
+[node name="DTtape" parent="." instance=ExtResource("2_scl3j")]
+transform = Transform3D(-2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_uck0t")
+
+[node name="InteractPrompt" type="Node3D" parent="."]
+script = ExtResource("4_pvdri")
+description = "Duct tape"
+options = Array[ExtResource("5_wsw1i")]([SubResource("Resource_161hk")])
+metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
+
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]
