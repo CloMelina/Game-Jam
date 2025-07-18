@@ -33,7 +33,7 @@ script = ExtResource("1_a8f7x")
 item_name = "Hammer"
 item_icon = ExtResource("2_8xk7u")
 item_prompt = NodePath("InteractPrompt")
-requisites = Array[String](["hammer"])
+requisites = Array[StringName]([&"hammer"])
 metadata/_custom_type_script = "uid://cagqo841xwg71"
 
 [node name="hammer" parent="." instance=ExtResource("2_b1l3l")]
