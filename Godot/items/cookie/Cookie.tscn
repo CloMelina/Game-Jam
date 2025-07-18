@@ -36,15 +36,27 @@ rings = 2
 [sub_resource type="Resource" id="Resource_ae7g5"]
 script = ExtResource("3_euldt")
 label = "Pick up"
-enabled = true
+identifier = &"pickup"
+enabled = false
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_rh3by"]
 script = ExtResource("3_euldt")
 label = "Eat"
+identifier = &"eat"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_prutg"]
@@ -104,6 +116,5 @@ stream = ExtResource("6_euldt")
 max_polyphony = 2
 
 [connection signal="used_1" from="." to="." method="_on_used_1"]
-[connection signal="option_0" from="InteractPrompt" to="." method="_on_interact_prompt_option_0"]
-[connection signal="option_1" from="InteractPrompt" to="." method="_on_interact_prompt_option_1"]
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

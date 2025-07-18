@@ -12,6 +12,12 @@ class_name InvItem
 ## Description of this item's secondary use action. Gets shown to the player when equipped. Leave blank if there is no secondary use action.
 @export var use_secondary_text: String
 
+## Requisites satisfied by this item. Case insensitive.
+@export var requisites: Array[StringName] = []
+
+## Item's velocity when thrown.
+@export var throw_velocity := 5.0
+
 ## Offset to be applied from the standard hold location. Change this if the item looks weird when held.
 @export var hold_position_offset: Vector3
 

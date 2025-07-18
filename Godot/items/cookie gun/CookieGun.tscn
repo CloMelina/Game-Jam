@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jf2syh5pajrl"]
+[gd_scene load_steps=15 format=3 uid="uid://jf2syh5pajrl"]
 
 [ext_resource type="Script" uid="uid://dm7pi4ohqnlyg" path="res://items/cookie gun/cookie_gun.gd" id="1_gk4oj"]
 [ext_resource type="PackedScene" uid="uid://caj7q3oveysur" path="res://items/cookie gun/Cookie gun.glb" id="2_8fvui"]
@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://cbnxnk7p4hacd" path="res://scripts/interactPrompt.gd" id="3_srwkt"]
 [ext_resource type="Script" uid="uid://cucgj36wwdes5" path="res://scripts/interactOption.gd" id="4_yqwsi"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8x3t"]
-radius = 0.0704363
-height = 0.512794
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8fvui"]
+height = 0.46936
+radius = 0.0722656
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6gh1x"]
 size = Vector3(0.280798, 0.068, 0.114)
@@ -38,8 +38,27 @@ rings = 2
 [sub_resource type="Resource" id="Resource_4lcxv"]
 script = ExtResource("4_yqwsi")
 label = "Pick up"
+identifier = &"pickup"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[sub_resource type="Resource" id="Resource_8fvui"]
+script = ExtResource("4_yqwsi")
+label = "Fire"
+identifier = &"fire"
+enabled = true
+hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [node name="CookieGun" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
@@ -57,8 +76,8 @@ metadata/_custom_type_script = "uid://cagqo841xwg71"
 transform = Transform3D(-1.07967e-08, -0.247, 0, 0.247, -1.07967e-08, 0, 0, 0, 0.247, 0, 0.0115654, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0363703, 0, 0.13386)
-shape = SubResource("CapsuleShape3D_e8x3t")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0363703, -1.20057e-10, 0.136607)
+shape = SubResource("CylinderShape3D_8fvui")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.970029, 0, 0.242989, 0, 1, 0, -0.242989, 0, 0.970029, 0.0782568, 0, -0.161135)
@@ -86,8 +105,8 @@ draw_pass_1 = SubResource("SphereMesh_b4cmr")
 [node name="InteractPrompt" type="Node3D" parent="."]
 script = ExtResource("3_srwkt")
 description = "Cookie gun"
-options = Array[ExtResource("4_yqwsi")]([SubResource("Resource_4lcxv")])
+options = Array[ExtResource("4_yqwsi")]([SubResource("Resource_4lcxv"), SubResource("Resource_8fvui")])
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
 [connection signal="used_1" from="." to="." method="_on_used_1"]
-[connection signal="option_0" from="InteractPrompt" to="." method="_on_interact_prompt_option_0"]
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]

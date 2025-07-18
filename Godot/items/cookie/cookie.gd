@@ -7,11 +7,12 @@ extends InvItem
 
 var in_hand = false
 
-func _on_interact_prompt_option_0() -> void:
-	pickup()
-
-func _on_interact_prompt_option_1() -> void:
-	eat()
+func _on_interact_prompt_triggered(option: StringName) -> void:
+	match option:
+		"pickup":
+			pickup()
+		"eat":
+			eat()
 
 func _on_used_1() -> void:
 	in_hand = true

@@ -13,8 +13,14 @@ radius = 0.148
 [sub_resource type="Resource" id="Resource_161hk"]
 script = ExtResource("5_wsw1i")
 label = "Pick up"
+identifier = &"pickup"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [node name="DuctTape" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
@@ -25,6 +31,7 @@ script = ExtResource("1_uck0t")
 item_name = "Duct tape"
 item_icon = ExtResource("2_pvdri")
 item_prompt = NodePath("InteractPrompt")
+requisites = Array[StringName]([&"tape"])
 hold_rotation = Vector3(3.1, 1, 0)
 metadata/_custom_type_script = "uid://cagqo841xwg71"
 
@@ -40,4 +47,4 @@ description = "Duct tape"
 options = Array[ExtResource("5_wsw1i")]([SubResource("Resource_161hk")])
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
-[connection signal="option_0" from="InteractPrompt" to="." method="_on_interact_prompt_option_0"]
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]

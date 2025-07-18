@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cagtyybd3qf0q"]
+[gd_scene load_steps=61 format=3 uid="uid://cagtyybd3qf0q"]
 
 [ext_resource type="PackedScene" uid="uid://bpo0gmyjrd6cb" path="res://pause_menu.tscn" id="1_u3cyc"]
 [ext_resource type="PackedScene" uid="uid://bcpkncscdhpy2" path="res://player.tscn" id="1_ulcgi"]
@@ -43,22 +43,53 @@ albedo_color = Color(0.734721, 0.734721, 0.734721, 1)
 [sub_resource type="Resource" id="Resource_73fnb"]
 script = ExtResource("7_ni31j")
 label = "Rotate"
+identifier = &"rotate"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_xlvrw"]
 script = ExtResource("7_ni31j")
 label = "Fucking explode"
+identifier = &"splode"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([&"tape"])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_1q4c1"]
 script = ExtResource("7_ni31j")
 label = "Look!"
+identifier = &"look"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
+metadata/_custom_type_script = "uid://cucgj36wwdes5"
+
+[sub_resource type="Resource" id="Resource_i6j5g"]
+script = ExtResource("7_ni31j")
+label = "POUND"
+identifier = &"pound"
+enabled = true
+hidden = false
+requisites = Array[StringName]([&"hammer"])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2354"]
@@ -193,15 +224,27 @@ animations = [{
 [sub_resource type="Resource" id="Resource_5c1cw"]
 script = ExtResource("7_ni31j")
 label = "Smooch"
+identifier = &""
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_akxrc"]
 script = ExtResource("7_ni31j")
 label = "Say \"gex\""
+identifier = &""
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1q4c1"]
@@ -237,15 +280,27 @@ font_size = 127
 [sub_resource type="Resource" id="Resource_xpof7"]
 script = ExtResource("7_ni31j")
 label = "jump"
+identifier = &""
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [sub_resource type="Resource" id="Resource_302uq"]
 script = ExtResource("7_ni31j")
 label = "KILL"
+identifier = &""
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [node name="Node3D" type="Node3D"]
@@ -294,7 +349,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0501137, 1.21705, -0.061502
 script = ExtResource("7_xlvrw")
 description = "THING"
 options = Array[ExtResource("7_ni31j")]([SubResource("Resource_73fnb"), SubResource("Resource_xlvrw"), SubResource("Resource_1q4c1")])
-radius = 0.95
+use_options = Array[ExtResource("7_ni31j")]([SubResource("Resource_i6j5g")])
 distance = 3.0
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
@@ -383,6 +438,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6746, 1.05, 1.49867)
 
 [node name="Hammer" parent="." instance=ExtResource("22_1q4c1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.71663, 1.02444, 0.924286)
+requisites = Array[StringName]([&"hammer"])
 
 [node name="Cookie" parent="." instance=ExtResource("23_aobyt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75666, 1.03717, 1.92797)
@@ -399,10 +455,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31027, 1.03717, 1.76372)
 [node name="CookieGun" parent="." instance=ExtResource("24_i6j5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9509, 1.09443, 1.37571)
 
-[connection signal="option_0" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_0"]
-[connection signal="option_1" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_option_1"]
-[connection signal="option_2" from="shit ass table/InteractPrompt" to="." method="_on_interact_prompt_option_2"]
-[connection signal="option_0" from="GAY/InteractPrompt" to="GAY" method="_on_interact_prompt_option_0"]
-[connection signal="option_1" from="GAY/InteractPrompt" to="GAY" method="_on_interact_prompt_option_1"]
-[connection signal="option_0" from="NPCMan/InteractPrompt" to="." method="_on_interact_prompt_option_0"]
-[connection signal="option_1" from="NPCMan/InteractPrompt" to="." method="_on_interact_prompt_option_1"]
+[connection signal="triggered" from="shit ass table/InteractPrompt" to="shit ass table/InteractPrompt" method="_on_triggered"]

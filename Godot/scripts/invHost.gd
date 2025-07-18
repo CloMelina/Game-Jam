@@ -3,6 +3,7 @@ extends ColorRect
 @onready var right_hand = $"../Camera3D/RightHand"
 @onready var left_hand = $"../Camera3D/LeftHand"
 @onready var equip_text = $EquipText
+@onready var throw_pos = $"../Camera3D/ThrowPoint"
 
 @export var inv_slots := []
 @export var selected_slot := 0
@@ -37,9 +38,15 @@ func _input(event: InputEvent) -> void:
 	# handle item use buttons
 	if event.is_action_pressed("use_1") and inv_slots[selected_slot].inv_item:
 		inv_slots[selected_slot].inv_item.use_1()
+		return
 	elif event.is_action_pressed("use_2") and inv_slots[selected_slot].inv_item:
 		inv_slots[selected_slot].inv_item.use_2()
-	return
+		return
+	
+	# handle item throw input
+	if event.is_action_pressed("inv_throw"):
+		throw_slot()
+		return
 
 func pickup(item: InvItem) -> void:
 	# find the first empty slot
@@ -61,6 +68,7 @@ func pickup(item: InvItem) -> void:
 		item.get_parent().remove_child(item)
 		curr_slot.set_item(item)
 		item.freeze = true
+		InteractRegistry.unregister_prompt(item.item_prompt)
 	
 	# update if the item is being put into the currently selected slot
 	if curr_slot_index == selected_slot:
@@ -100,6 +108,9 @@ func change_slot(slot_num: int) -> void:
 				equip_text.text += "  |  "
 			if item.use_secondary_text:
 				equip_text.text += get_key_for_action("use_2") + " - " + item.use_secondary_text
+	
+	# update requisite list
+	InteractRegistry.update_item(item)
 
 func get_key_for_action(action_name: String) -> String:
 	if not InputMap.has_action(action_name):
@@ -129,13 +140,24 @@ func clear_slot(slot_num:= selected_slot) -> InvItem:
 		return null
 	
 	# empty out the slot
-	var item = slot.inv_item
+	var item : InvItem = slot.inv_item
 	slot.inv_item = null
 	slot.change_image(null)
 	
-	# clear right hand if the slot is selected
+	# clear right hand and requisites if the slot is selected
 	if slot_num == selected_slot:
+		InteractRegistry.update_item(null)
 		for child in right_hand.get_children():
 			right_hand.remove_child(child)
 	
 	return item
+
+func throw_slot(slot_num:= selected_slot):
+	var item : InvItem = clear_slot(slot_num)
+	if item:
+		get_tree().current_scene.add_child(item)
+		item.freeze = false
+		InteractRegistry.register_prompt(item.item_prompt)
+		item.global_position = throw_pos.global_position
+		item.global_rotation = throw_pos.global_rotation
+		item.linear_velocity = -throw_pos.global_basis.z * item.throw_velocity

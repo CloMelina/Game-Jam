@@ -16,8 +16,14 @@ size = Vector3(0.045, 0.067, 0.224)
 [sub_resource type="Resource" id="Resource_j2aqy"]
 script = ExtResource("4_fklfa")
 label = "Pick up"
+identifier = &"pickup"
 enabled = true
 hidden = false
+requisites = Array[StringName]([])
+disqualifiers = Array[StringName]([])
+disqualify_inclusive = false
+dialogic_var = &""
+dialogic_enables = false
 metadata/_custom_type_script = "uid://cucgj36wwdes5"
 
 [node name="Hammer" type="RigidBody3D" node_paths=PackedStringArray("item_prompt")]
@@ -27,6 +33,7 @@ script = ExtResource("1_a8f7x")
 item_name = "Hammer"
 item_icon = ExtResource("2_8xk7u")
 item_prompt = NodePath("InteractPrompt")
+requisites = Array[String](["hammer"])
 metadata/_custom_type_script = "uid://cagqo841xwg71"
 
 [node name="hammer" parent="." instance=ExtResource("2_b1l3l")]
@@ -46,4 +53,4 @@ description = "Hammer"
 options = Array[ExtResource("4_fklfa")]([SubResource("Resource_j2aqy")])
 metadata/_custom_type_script = "uid://cbnxnk7p4hacd"
 
-[connection signal="option_0" from="InteractPrompt" to="." method="_on_interact_prompt_option_0"]
+[connection signal="triggered" from="InteractPrompt" to="." method="_on_interact_prompt_triggered"]

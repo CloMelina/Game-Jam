@@ -13,8 +13,12 @@ class_name InteractPrompt
 ## List of interaction options made available to the player
 @export var options: Array[InteractOption]
 
+## List of "use" options that get mapped to left/right mouse buttons.
+## Use this for actions that can only be done with a specific item equipped.
+@export var use_options: Array[InteractOption]
+
 ## How close the player has to be looking at the prompt for it to show. Lower numbers for larger objects.
-@export var radius := 0.9
+@export var radius := 0.95
 
 ## Maximum distance the player can trigger the prompt from
 @export var distance := 2.0
@@ -27,19 +31,10 @@ class_name InteractPrompt
 ## Disables the prompt completely.
 @export var enabled := true
 
-# signals that you can use to actually do things
-# this feels wrong but the better methods are just a little bit really fucking complicated
-signal option_0
-signal option_1
-signal option_2
-signal option_3
+signal triggered(option: StringName)
 
-func activate(index: int) -> void:
-	match index:
-		0: emit_signal("option_0")
-		1: emit_signal("option_1")
-		2: emit_signal("option_2")
-		3: emit_signal("option_3")
+func activate(option: StringName) -> void:
+	triggered.emit(option)
 
 # Keep registry up to date
 func _ready():
