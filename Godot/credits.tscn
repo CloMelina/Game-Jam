@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3vrfayey6hhe"]
+
+[ext_resource type="Script" uid="uid://bcqmfopm74roc" path="res://credits.gd" id="1_c1t8d"]
+[ext_resource type="FontFile" uid="uid://duogww83um1fx" path="res://Fonts/GrobeDeutschmeister.ttf" id="2_g4wvt"]
+[ext_resource type="FontFile" uid="uid://c6rsqgbuy6s5l" path="res://Fonts/Cocomat Light-trial.ttf" id="3_g4wvt"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c1t8d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.343
+offset_bottom = -0.264023
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 100
+text = "Airship!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Role" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -98.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_g4wvt")
+theme_override_font_sizes/font_size = 40
+text = "Programming"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Individual" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.543
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.135986
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_g4wvt")
+theme_override_font_sizes/font_size = 20
+text = "Jimmie Cox | Nick Heyart"
+horizontal_alignment = 1
+autowrap_mode = 3
